@@ -1,0 +1,106 @@
+<!-- CREATED BY WIDDY ARFIANSYAH -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="#">
+    <title>Metode Montecarlo</title>
+    <style>
+        body{
+            margin: 5%;
+        }
+    </style>
+  </head>
+  
+  <body>
+
+    <div class="container">
+        <h1><i>CREATED BY WIDDY ARFIANSYAH - MONTECARLO</i></h1>
+        <form action="" id="form" method="post">
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 0</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 1</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 2</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 3</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 4</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 5</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 6</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 7</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Frekuensi Permintaan 8</label>
+                <input type="number" name="frekuensi[]" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Jumlah Angka Acak</label>
+                <input type="number" name="angka_acak" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Harga</label>
+                <input type="number" name="harga" class="form-control">
+            </div>
+
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <hr>
+        <h3>Permintaan</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Permintaan Perminggu</th>
+                    <th>Frekuensi Permintaan</th>
+                    <th>Distribusi Probabilitas</th>
+                    <th>Distribusi Kumulatif</th>
+                    <th>Interval Acak</th>
+                </tr>
+            </thead>
+            <tbody id="show-permintaan">
+            </tbody>
+        </table>
+
+        <h3>Jumlah Permintaan</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Minggu</th>
+                    <th>Angka Acak</th>
+                    <th>Permintaan</th>
+                    <th>Pendapatan</th>
+                </tr>
+            </thead>
+            <tbody id="show-last">
+            </tbody>
+        </table>
+
+        <p id="permintaan" style="font-weight:bold"></p>
+        <p id="pendapatan" style="font-weight:bold"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
