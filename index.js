@@ -1,6 +1,26 @@
-// CREATED BY WIDDY ARFIANSYAH
+// <!-- CREATED BY WIDDY ARFIANSYAH -->
+// <!-- Follow My Github https://github.com/arvians-id -->
+
+// DOM Add input
+let counter = 1;
+const addFrekuensi = () => {
+    counter++;
+    const showInput = document.getElementById('show-input-frekuensi-permintaan')
+    const newElement = document.createElement("div");
+    newElement.setAttribute("class", "form-group removeclass" + counter);
+    newElement.innerHTML = `<div class="mb-3">
+                            <label class="form-label">Frekuensi Permintaan</label> 
+                            <button class="badge border-0 bg-danger" type="button" onclick="removeFrekuensi(${counter});">Hapus</button>
+                            <input type="number" name="frekuensi[]" class="form-control">
+                        </div>`;
+    showInput.appendChild(newElement)
+}
+
+const removeFrekuensi = rid => {
+    document.querySelector('.removeclass' + rid).remove();
+}
+
 // Selector
-const form = document.querySelector('#form');
 const submit = document.querySelector('#submit');
 const showPermintaan = document.querySelector('#show-permintaan');
 const showLast = document.querySelector('#show-last');
@@ -10,7 +30,7 @@ const harga = document.querySelector('[name="harga"]');
 const showResultPermintaan = document.querySelector('#permintaan');
 const showResultPendapatan = document.querySelector('#pendapatan');
 
-form.addEventListener('submit', function(e){
+submit.addEventListener('click', function(e){
     e.preventDefault();
 
     // Init
@@ -24,7 +44,7 @@ form.addEventListener('submit', function(e){
     Array.from(frekuensi).map(val => data.push(parseInt(val.value)));
     const totalPermintaanTable = data.reduce((val, i) => val + i);
 
-    // Make Table
+    // Make Table Permintaan
     let dataIntval = [];
     for(let i=0; i<data.length; i++){
         data[-1] = 0;
@@ -46,6 +66,9 @@ form.addEventListener('submit', function(e){
         dataIntval.push([Math.round(intval.toFixed(2) * 100), Math.round((totalProbabilitas.toFixed(2) * 100) - 1), i]);
 
     }
+    funcPermintaan(tablePermintaan, totalPermintaan, totalProbabilitas);
+
+    // Make Table Jumlah Permintaan
     let tableJumlahPermintaan = '';
     let totPermintaan = 0;
     let hasil = 0;
@@ -62,23 +85,20 @@ form.addEventListener('submit', function(e){
                                     <td>${bilAcak}</td>
                                     <td>${intvalAcak}</td>
                                     <td>${(intvalAcak * harga.value)}</td>
-                                </tr>`;
+                                 </tr>`;
         totPermintaan += intvalAcak;
         hasil += (intvalAcak * harga.value);
     }
     
     tableJumlahPermintaan += `<tr style="font-weight:bold">
-                                    <td>Jumlah</td>
-                                    <td></td>
-                                    <td>${totPermintaan}</td>
-                                    <td>${hasil}</td>
-                                </tr>`;
+                                <td>Jumlah</td>
+                                <td></td>
+                                <td>${totPermintaan}</td>
+                                <td>${hasil}</td>
+                              </tr>`;
     showLast.innerHTML = tableJumlahPermintaan;
-    
     showResultPermintaan.innerHTML = 'Rata-rata permintaan : ' + (totPermintaan / parseInt(angka_acak.value));
     showResultPendapatan.innerHTML = 'Rata-rata pendapatan : ' + (hasil / parseInt(angka_acak.value));
-
-    funcPermintaan(tablePermintaan, totalPermintaan, totalProbabilitas);
 })
 
 function check(bil, first, end){
@@ -87,6 +107,7 @@ function check(bil, first, end){
     }
     return false;
 }
+
 // Table Permintaan
 function funcPermintaan(table, total, probabilitas){
     table += `<tr style="font-weight:bold">
@@ -95,6 +116,9 @@ function funcPermintaan(table, total, probabilitas){
                 <td>${probabilitas}</td>
                 <td></td>
                 <td></td>
-                </tr>`;
+              </tr>`;
     showPermintaan.innerHTML = table;
 }
+
+// <!-- CREATED BY WIDDY ARFIANSYAH -->
+// <!-- Follow My Github https://github.com/arvians-id -->
